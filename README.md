@@ -43,6 +43,12 @@ Or open the folder in Visual Studio 2022+ (CMake support built in) and run `phys
 - `src/scenes.cpp`: demo scenes
 - Physics code: coming soon
 
+## How this is built
+
+I write all of the physics myself: the math, integration, collision detection, collision response and broadphase. That's the point of the project.
+
+I use Claude (an AI assistant) for scaffolding and support only. It wrote the window, game loop, debug drawing and build setup, and it helps me with explanations, debugging and code review. It doesn't write the physics. Commits it helped with have a `Co-Authored-By: Claude` line.
+
 ## License
 
 [MIT](LICENSE)
