@@ -42,3 +42,7 @@ Or open the folder in Visual Studio 2022+ (CMake support built in) and run `phys
 - `src/debug_draw.*`: world-space drawing (meters, y-up)
 - `src/scenes.cpp`: demo scenes
 - Physics code: coming soon
+
+## License
+
+[MIT](LICENSE)
