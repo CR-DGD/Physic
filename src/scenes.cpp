@@ -1,5 +1,6 @@
 #include "debug_draw.h"
 #include "scene.h"
+#include "vec2.h"
 
 // Scene 1 only checks that drawing works. Delete it once real scenes exist.
 namespace draw_test {
@@ -19,9 +20,22 @@ namespace draw_test {
 
 // Your physics goes here: create a world in reset(), advance it in step(), draw its bodies in draw().
 namespace sandbox {
-    static void reset() {}
-    static void step(float) {}
-    static void draw() { dd::hud("sandbox: nothing here yet"); }
+    static Vec2 pos = {0, 0};
+    static Vec2 vel = {0, 0};
+
+    static void reset() {
+        pos = {0, 8};
+        vel = {0, 0};
+    }
+    static void step(float dt) {
+        vel+={0,-9.81f*dt};
+        pos+=vel*dt;
+    }
+    static void draw() {
+
+        dd::circle(pos.x,pos.y,2);
+        dd::hud("vel: %.2f", vel.y);
+    }
 }
 
 const Scene kScenes[] = {

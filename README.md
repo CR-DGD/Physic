@@ -6,7 +6,7 @@ A 2D rigid-body physics engine in C++, written from scratch to learn how engines
 
 ## Roadmap
 
-- [ ] Vector math
+- [x] Vector math
 - [ ] Particles: gravity, semi-implicit Euler, wall bounces
 - [ ] Circle collisions: detection, impulse response, restitution, positional correction
 - [ ] Boxes: AABB vs circle, mass and inverse mass, static bodies
