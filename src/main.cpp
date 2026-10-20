@@ -1,10 +1,40 @@
 #include "debug_draw.h"
 #include "scene.h"
+#include "vec2.h"
 
 #include <algorithm>
+#include <cassert>
 #include <raylib.h>
 
+// Runs once at startup. assert only fires in Debug builds.
+static void runVec2Tests() {
+
+    assert(dot({1,0},{0,1}) == 0);
+
+    assert(cross({1,0},{0,1}) == 1);
+
+    assert(lengthSq({3,4}) == 25);
+
+    assert(length({3,4}) == 5);
+
+    assert(normalize({0,0}).x == 0);
+    assert(normalize({0,0}).y == 0);
+
+    Vec2 norm = normalize({3,4});
+    float x = norm.x;
+    float y = norm.y;
+    assert(std::fabs(x - 0.6f)<0.001);
+    assert(std::fabs(y - 0.8f)<0.001);
+
+    Vec2 a = {2,5};
+    Vec2 b = {1,6};
+    Vec2 sub = (a - b);
+    assert(sub.x == 1);
+    assert(sub.y == -1);
+}
+
 int main() {
+    runVec2Tests();
     SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_WINDOW_RESIZABLE | FLAG_VSYNC_HINT);
     InitWindow(1280, 720, "Physics Engine");
 
